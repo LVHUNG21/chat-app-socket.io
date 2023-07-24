@@ -1,24 +1,37 @@
-const baseUrl="http://localhost:5000/api";
+const baseUrl = "http://localhost:5000/api";
 
-const postRequest=async(url,body)=>{
-    const respone=await fetch(url,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
+const postRequest = async (url, body) => {
+    const respone = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
 
         },
         body,
     })
-    const data=await respone.json();
-    if(!respone.ok){
+    const data = await respone.json();
+    if (!respone.ok) {
         let message;
-        if(data?.message){
-            message=data.message;
+        if (data?.message) {
+            message = data.message;
         }
-        else{
-            message=data;
+        else {
+            message = data;
         }
-        return {error:true,message};
+        return { error: true, message };
+    }
+    return data;
+}
+export const getRequest = async (url) => {
+    const respone = await fetch(url);
+    const data = await respone.json();
+    if (!respone.ok) {
+        let message = "AN errr occured.."
+    
+    if (data?.message) {
+        message = data.message;
+    }
+    return { error: true, message };
     }
     return data;
 }

@@ -1,5 +1,7 @@
 const express=require('express');
 const userRouter=require('./Routes/userRoute')
+const chatRouter=require('./Routes/chatRoute')
+const messageRouter=require('./Routes/messageRoute');
 //cors allow us commucating with frontend
 const cors=require('cors');
 const  app=express();
@@ -9,6 +11,8 @@ const mongoose=require("mongoose");
 app.use(express.json());
 app.use(cors());
 app.use("/api/user",userRouter);
+app.use("/api/chat",chatRouter);
+app.use("/api/message",messageRouter);
 
 
 app.get('/',(req,res)=>{
