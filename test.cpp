@@ -23,5 +23,41 @@ int main(){
    string tendaydu="levanhung";// luu tru mot chuoi ki tu 
    bool lyhon=false; // true or false,  1 or 0
 
-    cout <<"co hang xom da ly hon chua :"<<lyhon<<endl;    
+    // cout <<"co hang xom da ly hon chua :"<<lyhon<<endl;    
+
+  // cin user input
+
+   // int tuoithat;
+   // string quequan;
+   // double chieucao;
+   // cout << "moi ban nhap tuoi"<<endl;
+   // cin >> tuoithat; 
+   // cin>>quequan;
+   // cin>>chieucao;
+
+   // cout<< "tuoi la " <<tuoithat << endl;
+   // cout<< "que quan la"<<quequan<<endl;
+   // cout<< "chieu cao la"<<chieucao<<endl;
+
+   //operator
+   // = gan gia tri 
+   int x=1;
+   int y=2;
+   double z=3;
+    
+   
+   int tong=x+y;
+   int hieu=x-y;
+   int tich=x*y;
+   int chia= z/y;
+   int chialaydu=x%y; // cung type data 
+   // x=++x;
+   x++;
+   cout<< "tongla:"<<tong<<endl;
+   cout<<"hieu la:"<<hieu<<endl;
+   cout<<"tich la:"<<tich<<endl;
+   cout<<"chia la:"<<chia<<endl;
+   cout<<"chialaydula:"<<chialaydu<<endl;
+   cout<< "x++:"<<x<<endl;
+ 
 }

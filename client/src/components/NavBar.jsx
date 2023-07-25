@@ -17,6 +17,7 @@ const NavBar = () => {
                 <Stack direction='horizontal' gap={3}>
                     {
                         user && (<>
+                        <Notification/>  
                     <Link onClick={()=> logoutUser()} to="/logout" className="link-light text-decoration-none">
                         Logout
                     </Link>
