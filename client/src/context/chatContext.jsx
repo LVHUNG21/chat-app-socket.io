@@ -158,8 +158,37 @@ export const ChatContextProvider = ({ children, user }) => {
     const markNotificationAsRead=useCallback((n,userChats,user,notifications)=>{
         const desiredChat=userChats.find(chat=>{
             const chatMembers=[user._id,n.senderId]
+            const isDesiredChat=chat?.members.every((member)=>{
+                return chatMembers.includes(member);
+            });
+            return isDesiredChat;
+        });
+        //mark notification as read;
+        const mNotifications=notifications.map(el=>{
+            if(n.senderId===el.senderId){
+                return {...n,isRead:true}
+            }else{
+                return el
+            }
         })
-    })
+        updateCurrentChat(desiredChat)
+        setNotifications(mNotifications)
+    },[])
+
+    const markThisUserNotificationsAsRead=useCallback((thisUserNotifications,notifications)=>{
+        const mNotifications=notifications.map((el)=>{
+            let notification;
+            thisUserNotifications.array.forEach(element => {
+                if(n.senderId===el.senderId){
+                    notification ={...n,isRead:true};
+                } else{
+                    notification=el;
+                }
+            });
+            return notification;
+        })
+            setNotifications(mNotifications);
+    },[])
 
     const updateCurrentChat = useCallback((chat) => {
         setCurrentChats(chat)
@@ -172,5 +201,5 @@ export const ChatContextProvider = ({ children, user }) => {
         setUserChats((prev) => [...prev, respone]);
     }, [])
 
-    return (<ChatContext.Provider value={{markAllNotificationsAsRead,notifications, message, onlineUsers,isMessageLoading, messageError, createChat, updateCurrentChat, userChats, isUserChatsLoading, userChatsError, potentialChats,sendTextMessage,allUsers }}>{children}</ChatContext.Provider>)
+    return (<ChatContext.Provider value={{markThisUserNotificationsAsRead,markNotificationAsRead,markAllNotificationsAsRead,notifications, message, onlineUsers,isMessageLoading, messageError, createChat, updateCurrentChat, userChats, isUserChatsLoading, userChatsError, potentialChats,sendTextMessage,allUsers }}>{children}</ChatContext.Provider>)
 }

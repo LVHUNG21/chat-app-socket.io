@@ -37,7 +37,11 @@ const Notification = () => {
                 {modifiedNotifications?.length ===0 ?<span className="notification">No notifications yet...</span> : null}
                 {modifiedNotifications && modifiedNotifications.map((n,index)=>{
                     return (
-                        <div key={index} className={n.isRead ? "Notification" :"notification not-read"}>
+                        <div key={index} className={n.isRead ? "Notification" :"notification not-read"} onClick={()=>{
+                            markAllNotificationsAsRead(n,userChats,user,notifications);
+                            setIsOpen(false);
+                        }}>
+
                             <span>
                                 {`${n.senderName} sent you a new message`}
                                 <span className="notification-time">
