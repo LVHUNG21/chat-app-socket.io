@@ -40,6 +40,7 @@ const Notification = () => {
                         <div key={index} className={n.isRead ? "Notification" :"notification not-read"} onClick={()=>{
                             markAllNotificationsAsRead(n,userChats,user,notifications);
                             setIsOpen(false);
+                            
                         }}>
 
                             <span>

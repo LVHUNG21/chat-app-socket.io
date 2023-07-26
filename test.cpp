@@ -1,4 +1,6 @@
 #include<iostream>
+#include<cmath>
+#include<string>
 using namespace std;
 int main(){
 //     bien: variable 
@@ -41,23 +43,59 @@ int main(){
 
    //operator
    // = gan gia tri 
-   int x=1;
-   int y=2;
-   double z=3;
+   // int x=1;
+   // int y=2;
+   // double z=3;
     
    
-   int tong=x+y;
-   int hieu=x-y;
-   int tich=x*y;
-   int chia= z/y;
-   int chialaydu=x%y; // cung type data 
-   // x=++x;
-   x++;
-   cout<< "tongla:"<<tong<<endl;
-   cout<<"hieu la:"<<hieu<<endl;
-   cout<<"tich la:"<<tich<<endl;
-   cout<<"chia la:"<<chia<<endl;
-   cout<<"chialaydula:"<<chialaydu<<endl;
-   cout<< "x++:"<<x<<endl;
+   // int tong=x+y;
+   // int hieu=x-y;
+   // int tich=x*y;
+   // int chia= z/y;
+   // int chialaydu=x%y; // cung type data 
+   // // x=++x;
+   // x++;
+   // cout<< "tongla:"<<tong<<endl;
+   // cout<<"hieu la:"<<hieu<<endl;
+   // cout<<"tich la:"<<tich<<endl;
+   // cout<<"chia la:"<<chia<<endl;
+   // cout<<"chialaydula:"<<chialaydu<<endl;
+   // cout<< "x++:"<<x<<endl;
+
+   // CONDITIONS C++
+   // int score=10;
+   // if(score>80){
+   //    cout<<"Ban da thang roi"<<endl;
+   // }
+   // else{
+   //    cout<<"ban da thua roi"<<endl;
+   // }
+   
+   int age=17;
+   if(age>=20){
+      cout<<"du tuoi de con"<<endl;
+   }
+   else if (age>=18){
+         cout<<"du tuoi de cuoi"<<endl;
+   }
+   else if(age>=16){
+         cout<<"dung gu de yeu"<<endl;
+   }
+   else{
+      cout<<"co ay chua du tuoi"<<endl;
+   }
+
+   // if(diem > 8.0){
+   //    cout<<"hoc sinh gioi"<<endl;
+   // }
+   // else if(6.5<diem<8.0){
+   //    cout<<" hoc sinh kha"<<endl;
+   // }
+   // else if(5<diem<6.5){
+   //    cout<<" hoc sinh tb"<<endl;
+   // }
+   // else{
+   //    cout<<"hoc sinh kem"<<endl;
+   // }
  
 }
