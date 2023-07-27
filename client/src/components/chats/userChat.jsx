@@ -4,14 +4,26 @@ import avatarer from '../../assets/profilee.svg'
 import { useContext } from "react";
 import { ChatContext } from "../../context/chatContext";
 import { unreadNotificationsFunc } from "../../utils/unreadNotification";
+import { useFetchLastestMessage } from "../../hooks/useFetchLastestMessage";
+import moment from "moment"
+
 const UserChat = (chat,user) => {
     const {recipientUser}=useFetchRecipientUser(chat,user);
     const {onlineUser,notifications,markThisUserNotificationsAsRead}=useContext(ChatContext);
+    const {lastestMessage}=useFetchLastestMessage(chat);
 
     const unreadNotifications=unreadNotificationsFunc(notifications);
     const thisUserNotifications=unreadNotifications?.filter(n=>n.senderId===recipientUser?._id)
 
     const isOnline=onlineUser?.some((user)=>user?.userId=== recipientUser?._id);
+    const truncateText=(text)=>{
+        let shortText=text.substring(0,20);
+        
+        if(text.length>20){
+            shortText=shortText+"..."
+        }
+        return shortText;
+    }
 
     return <Stack onClick={()=>{
         if(thisUserNotifications?.length !==0){
@@ -25,12 +37,16 @@ const UserChat = (chat,user) => {
                 </div>
                 <div className="text-content">
                     <div className="name">{recipientUser?.name}</div>
-                    <div className="text">Text message</div>
+                    <div className="text">{
+                        lastestMessage?.text && (
+                            <span>{truncateText(lastestMessage?.text)}</span>
+                        )
+                    }</div>
                 </div>
             </div>
             <div className="d-flex flex-column align-items-end">
                 <div className="date">
-                    12/12/2022
+                    {moment(lastestMessage?.createdAt).calendar()}
                 </div>
                 <div className={thisUserNotifications.length>0?"this-user-notifications":null}>
                     {thisUserNotifications?.length>0 ? thisUserNotifications?.length :''}

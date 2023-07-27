@@ -25,6 +25,25 @@ int main(){
    string tendaydu="levanhung";// luu tru mot chuoi ki tu 
    bool lyhon=false; // true or false,  1 or 0
 
+   //array C++
+
+
+   int array[4]= {2,3,4,5};  // array[0]=2, array[1]=3, array[2]=4, array[3]=5 
+   
+
+   // int array[3]={1,2,3}// 
+   
+   // string a[2]={"aba","bcd"}; // a[0]="aba", a[1]="bcd";
+
+   // array[0]=7;
+   // int a;
+   
+
+
+
+
+
+
     // cout <<"co hang xom da ly hon chua :"<<lyhon<<endl;    
 
   // cin user input
@@ -71,19 +90,19 @@ int main(){
    //    cout<<"ban da thua roi"<<endl;
    // }
    
-   int age=17;
-   if(age>=20){
-      cout<<"du tuoi de con"<<endl;
-   }
-   else if (age>=18){
-         cout<<"du tuoi de cuoi"<<endl;
-   }
-   else if(age>=16){
-         cout<<"dung gu de yeu"<<endl;
-   }
-   else{
-      cout<<"co ay chua du tuoi"<<endl;
-   }
+   int age=18;
+   // if(age>=20){
+   //    cout<<"du tuoi de con"<<endl;
+   // }
+   // else if (age>=18){
+   //       cout<<"du tuoi de cuoi"<<endl;
+   // }
+   // else if(age>=16){
+   //       cout<<"dung gu de yeu"<<endl;
+   // }
+   // else{
+   //    cout<<"co ay chua du tuoi"<<endl;
+   // }
 
    // if(diem > 8.0){
    //    cout<<"hoc sinh gioi"<<endl;
@@ -97,5 +116,44 @@ int main(){
    // else{
    //    cout<<"hoc sinh kem"<<endl;
    // }
+
+      /// chi xet cac truong hop bang hoac co gia tri cu the
+      // switch(age){
+      //    case 20:
+      //       cout<<"du tuoi decon"<<endl;
+      //       break;
+      //    case 18:
+      //       cout<<"du tuoi lay chong"<<endl;
+      //       break;
+      //    case 16:
+      //       cout<<"du tuoi yeu"<<endl;
+      //       break;
+      //    default:
+      //       cout<<"du tuoi lam quen"<<endl;
+      // }
+
+      
+      
+
+      /// C++ loop
+
+      //while loop
+      int tuoicuanhom[4]={23,25,31,20};
+      for(int i=0;i<4;i++){
+         cout<<tuoicuanhom[i]<<endl;
+      }
+
+      // for(int i=0;i<=10;i++){
+      //    cout<<i<<endl;
+      // }  
+      
+      int i = 0;
+         while (i < 5) {
+               cout << i << "\n";
+               i++;
+          }
  
+      // for (int i = 0; i <= 10; i++) {
+      //          cout << i << "\n";
+      // }
 }
