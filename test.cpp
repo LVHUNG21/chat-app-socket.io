@@ -130,21 +130,27 @@ int main()
    int tuoicuanhom[4] = {23, 25, 31, 20};
    for (int i = 0; i < 4; i++)
    {
+      // handle conditions continue and break using in if else
+      // break ket thuc vong lap, continue bat dau lai vong lap moi
+      // chi in ra den vi tri i=2 ,
+      if (i == 2)
+      {
+         continue; ///
+      }
       cout << tuoicuanhom[i] << endl;
    }
+   // references : tham chieu &
+   //    When a variable is created in C++, a memory address is assigned to the variable. And when we assign a value to the variable, it is stored in this memory address.
+   // To access it, use the & operator, and the result will represent where the variable is stored:
+   string food = "Pizza";
 
-   // for(int i=0;i<=10;i++){
-   //    cout<<i<<endl;
-   // }
+   // string meal = food;
+   string &meal = food;
 
-   int i = 0;
-   while (i < 5)
-   {
-      cout << i << "\n";
-      i++;
-   }
+   meal = "hunng";
 
-   // for (int i = 0; i <= 10; i++) {
-   //          cout << i << "\n";
-   // }
+   cout << food << "\n"; // Outputs Pizza
+   cout << meal << "\n"; // Outputs Pizza
+
+   // cout << &food << endl; // Outputs 0x6dfed4
 }
