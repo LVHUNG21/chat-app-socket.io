@@ -1,4 +1,4 @@
-import { useContext,useRef } from 'react'
+import { useEffect,useContext,useRef } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/chatContext';
 import { useFetchRecipientUser } from '../../hooks/useFetchRecipe';
@@ -11,10 +11,13 @@ const ChatBox = () => {
     const { recipientUser } = useFetchRecipientUser(currentChat, user);
     const scroll =useRef();
      
-    console.log("text",textMessage);
+    // console.log("text",textMessage);
     useEffect(()=>{
         scroll.current?.scrollIntoView({behavior:"smooth"})
-    },[message]);
+    },[messages]);
+
+
+
     if (!recipientUser)
         return (<>
 

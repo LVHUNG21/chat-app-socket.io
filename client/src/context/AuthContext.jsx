@@ -1,6 +1,6 @@
 // context api as redux;
 import { createContext,useCallback,useEffect,useState } from "react"
-
+import { baseUrl,postRequest } from "../utils/services"
 export const  AuthContext = createContext()
 
 export const AuthContextProvider= ({children})=>{
@@ -19,9 +19,10 @@ export const AuthContextProvider= ({children})=>{
     const [isLoginLoading,setIsLoginLoading]=useState(false);
     const [loginInfo,setLoginInfo]=useState({
         email:"",
-        password:"",
+        password:"",    
     })
-
+     
+    console.log("registerInfo",registerInfo)
     useEffect(()=>{
         const user=localStorage.getItem("User");
         setUser(JSON.parse(user));
@@ -29,16 +30,18 @@ export const AuthContextProvider= ({children})=>{
 
     const updateRegisterInfo=useCallback((info)=>{
         setRegisterInfo(info);
-    },[]);
+    },[]);  
     const updateLoginInfo=useCallback((info)=>{
         setLoginInfo(info);
     },[]);
     const registerUser= useCallback(async()=>{
         setRegisterLoading(true)
         setRegisterError(null);
-    await postRequest(`${baseUrl}/users/register`,JSON.stringify(registerInfo));
+        
+    await postRequest(`${baseUrl}/user/register`,JSON.stringify(registerInfo));
     setRegisterLoading(false);
     if (response.error){
+        console.log('error')
         return setRegisterError(response);
     }
 
@@ -50,7 +53,7 @@ export const AuthContextProvider= ({children})=>{
         e.preventDefault()
         setIsLoginLoading(true)
         setLoginError(null);
-        const respone =await postRequest(`${baseUrl}/users/login`,JSON.stringify(loginInfo))
+        const respone =await postRequest(`${baseUrl}/user/login`,JSON.stringify(loginInfo))
         if(respone.error){
             return setLoginError(respone);
         }
@@ -62,7 +65,7 @@ export const AuthContextProvider= ({children})=>{
         localStorage.removeItem("User");
         setUser(null);
     },[])
-    return <AuthContext.Provider value={{user,registerInfo,updateRegisterInfo,updateRegisterInfo,registerUser,registerError,logoutUser,loginUser,loginError,loginInfo,updateLoginInfo,isLoginLoading}}>
+    return <AuthContext.Provider value={{user,registerInfo,updateRegisterInfo,registerUser,registerError,logoutUser,loginUser,loginError,loginInfo,updateLoginInfo,isLoginLoading}}>
         {children}
     </AuthContext.Provider>
 }

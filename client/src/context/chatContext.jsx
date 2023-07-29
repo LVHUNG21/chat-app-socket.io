@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import { baseUrl, getRequest, postRequest } from '../utils/services';
-import {io} from "socket-io-client"
+import {io} from "socket.io-client"
 
 export const ChatContext = createContext();
 
@@ -22,7 +22,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
     //initial socket
     useEffect(()=>{
-        const newSocket=io("http://localhost:5000");
+        const newSocket=io("http://localhost:5173");
         setSocket(newSocket);
         return ()=>{
             newSocket.disconnect()

@@ -1,6 +1,6 @@
 import {Routes,Route,Navigate} from 'react-router-dom'
 import { useContext, useState } from 'react'
-import Chat from "./pages/Chat";
+import Chat from "./pages/chat";
 import Register from './pages/register';
 import Login from './pages/login';
 import "bootstrap/dist/css/bootstrap.min.css"

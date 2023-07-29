@@ -3,7 +3,7 @@ import { Alert, Button, Form, Row, Col, Stack } from "react-bootstrap";
 import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
-    const { registerInfo, updateRegisterInfo, registerUser, registerError } = useContext(AuthContext)
+    const { registerInfo, updateRegisterInfo, registerUser, registerError,user } = useContext(AuthContext)
     return (<>
         <Form onSubmit={registerUser}>
             <Row style={{ height: '100vh', justifyContent: "center", paddingTop: "20%" }}>
@@ -14,7 +14,7 @@ const Register = () => {
                             Register
                         </h2>
                         <h2>
-                            {user.name}
+                            {user?.name}
                         </h2>
 
                         <Form.Control type='text' placeholder='Name' onChange={(e) => updateRegisterInfo({ ...registerInfo, name: e.target.value })} />
@@ -24,7 +24,7 @@ const Register = () => {
                         <Button variant='primary' type="submit">
                             Register
                         </Button>
-                        {registerError.error && (
+                        {registerError?.error && (
 
                             <Alert variant='danger'>
                             </Alert>

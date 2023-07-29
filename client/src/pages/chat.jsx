@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import ChatBox from "../components/chats/chatbox";
 const Chat = () => {
     const {user}=useContext(AuthContext)
-    const {userChats,isUserChatsLoading,updateCurrentChat   }=useContext();
+    const {userChats,isUserChatsLoading,updateCurrentChat}=useContext(ChatContext);
     return (<Container>
     {
         userChats?.length <1 ? null : (

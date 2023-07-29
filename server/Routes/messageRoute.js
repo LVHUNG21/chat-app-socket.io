@@ -1,11 +1,11 @@
 const express=require('express');
 const {
     createMessage,
-    getMessage
+    getMessages
 }=require("../Controller/messageController");
 
 const router=express.Router();
 router.post("/",createMessage);
-router.get("/:chatId",getMessage);
+router.get("/:chatId",getMessages);
 
 module.exports=router;

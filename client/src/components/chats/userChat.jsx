@@ -7,7 +7,7 @@ import { unreadNotificationsFunc } from "../../utils/unreadNotification";
 import { useFetchLastestMessage } from "../../hooks/useFetchLastestMessage";
 import moment from "moment"
 
-const UserChat = (chat,user) => {
+export const UserChat = (chat,user) => {
     const {recipientUser}=useFetchRecipientUser(chat,user);
     const {onlineUser,notifications,markThisUserNotificationsAsRead}=useContext(ChatContext);
     const {lastestMessage}=useFetchLastestMessage(chat);
