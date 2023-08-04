@@ -149,8 +149,15 @@ int main()
 
    meal = "hunng";
 
-   cout << food << "\n"; // Outputs Pizza
-   cout << meal << "\n"; // Outputs Pizza
+   // cout << food << "\n"; // Outputs Pizza
+   // cout << meal << "\n"; // Outputs Pizza
 
+   string *contro = &meal;
+   // variable has value and address memory
+   // Access the memory address of food and output its value (Pizza)
+   cout << *contro << "\n";
+
+   cout << contro << endl;
+   // cout << &contro << endl;
    // cout << &food << endl; // Outputs 0x6dfed4
 }
